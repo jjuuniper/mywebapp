@@ -39,3 +39,4 @@ msbuild.wrn
 
 serviceprinciple
 .terraform/
+.git_old/
