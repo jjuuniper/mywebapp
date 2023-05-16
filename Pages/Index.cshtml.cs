@@ -14,6 +14,6 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-
+        System.Console.WriteLine("Hello World!");
     }
 }
