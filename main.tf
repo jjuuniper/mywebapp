@@ -13,16 +13,6 @@ provider "azurerm"{
     }
 }
 
-variable "image_build" {
-  type = string
-  description = "latest build version"
-}
-
-variable "iac_resource_group" {
-  type = string
-  default = "jjuunipertfrg"
-}
-
 resource "azurerm_resource_group" "tf_rg_mywebapp" {
   name = var.iac_resource_group
   location = "eastus"
