@@ -42,4 +42,3 @@ serviceprinciple
 .git_old/
 terraform.tfstate
 terraform.tfstate.backup
-vars.tf

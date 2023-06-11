@@ -33,13 +33,6 @@ resource "azurerm_linux_web_app" "tf_mywebapp_app_service" {
   resource_group_name = azurerm_resource_group.tf_rg_mywebapp.name
   service_plan_id     = azurerm_service_plan.tf_service_plan.id
 
-  
-  //app_settings = {
-    //DOCKER_REGISTRY_SERVER_URL = var.iac_docker_url
-    //DOCKER_REGISTRY_SERVER_USERNAME = var.iac_docker_un
-    //DOCKER_REGISTRY_SERVER_PASSWORD = var.iac_docker_pw
-  //}
-
   site_config {
     always_on = false
     application_stack {
