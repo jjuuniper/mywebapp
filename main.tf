@@ -21,7 +21,7 @@ resource "azurerm_resource_group" "tf_rg_mywebapp" {
 
 resource "azurerm_service_plan" "tf_service_plan" {
  name                = "mywebapp_sp"
- sku_name            = "S1"
+ sku_name            = "B1"
  location            = "eastus"
  resource_group_name = azurerm_resource_group.tf_rg_mywebapp.name
  os_type             = "Linux"
@@ -34,17 +34,17 @@ resource "azurerm_linux_web_app" "tf_mywebapp_app_service" {
   service_plan_id     = azurerm_service_plan.tf_service_plan.id
 
   
-  app_settings = {
-    DOCKER_REGISTRY_SERVER_URL = var.iac_docker_url
-    DOCKER_REGISTRY_SERVER_USERNAME = var.iac_docker_un
-    DOCKER_REGISTRY_SERVER_PASSWORD = var.iac_docker_pw
-  }
+  //app_settings = {
+    //DOCKER_REGISTRY_SERVER_URL = var.iac_docker_url
+    //DOCKER_REGISTRY_SERVER_USERNAME = var.iac_docker_un
+    //DOCKER_REGISTRY_SERVER_PASSWORD = var.iac_docker_pw
+  //}
 
   site_config {
-    #always_on = false
+    always_on = false
     application_stack {
-      docker_image = "juuniper/mywebapp"
-	    docker_image_tag = "latest"
+      docker_image = var.iac_docker_image
+	    docker_image_tag = var.image_build
     }
   }
 }
