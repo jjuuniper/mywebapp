@@ -5,7 +5,7 @@ variable "image_build" {
 
 variable "iac_resource_group" {
   type = string
-  default = "jjuunipertfrg"
+  default = "rg_juuniper_webapp"
 }
 
 variable "iac_linux_web_app" {

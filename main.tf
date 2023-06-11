@@ -13,10 +13,18 @@ provider "azurerm"{
     }
 }
 
+terraform {
+  backend "azurerm" {
+    resource_group_name = "rg_tf_state"
+    storage_account_name = "satfstatejuuniper"
+    container_name = "tfdata"
+    key = "terraform.tfstate"
+  }
+}
+
 resource "azurerm_resource_group" "tf_rg_mywebapp" {
   name = var.iac_resource_group
   location = "eastus"
-
 }
 
 resource "azurerm_service_plan" "tf_service_plan" {
